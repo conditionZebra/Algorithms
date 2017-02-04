@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 #include <vector>
-#include "../../../qcustomplot/qcustomplot.h"
+#include "qcustomplot.h"
 
 namespace Ui {
 class MainWindow;

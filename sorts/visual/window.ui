@@ -27,7 +27,8 @@
    <class>QCustomPlot</class>
    <extends>QWidget</extends>
 <!-- no relative paths or at least I could not make google to answer -->
-   <header>/home/gomor/work/science/qcustomplot/qcustomplot.h</header>
+<!-- header line not needed, it seems -->
+<!--   <header>/home/gomor/work/science/qcustomplot/qcustomplot.h</header> -->
    <container>1</container>
   </customwidget>
  </customwidgets>

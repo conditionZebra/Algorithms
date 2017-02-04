@@ -9,8 +9,8 @@ QMAKE_CXXFLAGS += -std=c++0x
 
 TARGET = teszt 
 TEMPLATE = app
-VISUAL_PATH = /home/gomor/work/science/algorithms/sorts/visual
-WORKING_DIR_PATH = /home/gomor/work/science/algorithms/sorts/visual
+VISUAL_PATH = /home/gomor/work/science/Algorithms/sorts/visual
+WORKING_DIR_PATH = /home/gomor/work/science/Algorithms/sorts/visual
 INCLUDEPATH += $$VISUAL_PATH
 
 
