@@ -57,6 +57,7 @@ int main()
         stringStack.push("ketto");
         stringStack.push("harom");
         stringStack.push("negy");
+        stringStack.push("ot");
 
 
         for(Stack<string>::iterator iter = stringStack.begin(); iter != stringStack.end(); iter++)
