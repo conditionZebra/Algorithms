@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
 
     int position1 = bs::search(words, std::string("geza"));
     int position2 = bs::search(words, std::string("korte"));
-    int position3 = bs::search(words, std::string("geza"));
+    int position3 = bs::search(words, std::string("alma"));
     int position4 = bs::search(words, std::string("kutya"));
     int position5 = bs::search(words, std::string("AAA"));
     int position6 = bs::search(words, std::string("zzzzzzz"));
