@@ -14,40 +14,47 @@ using namespace std;
 namespace SearchAlgorithms {
 
 template <class T>
-int binarySearch1 (std::shared_ptr<std::vector<T>> searchedVector, int lowerBound, int upperBound, T searchedItem)
-{ 
+  class BinarySearch {
+    private:
+      BinarySearch();
+      static int worker (std::shared_ptr<std::vector<T>> , int, int, T);
+    
+    public:
+      static int search (std::shared_ptr<std::vector<T>>, T);
 
+  };
 
-    if((*searchedVector)[upperBound] == searchedItem)
-      return upperBound;
-    else if((*searchedVector)[lowerBound] == searchedItem)
-      return lowerBound;
+template <class T>
+int BinarySearch<T>::worker (std::shared_ptr<std::vector<T>> searchedVector, int lowerBound, int upperBound, T searchedItem)
+{
+  if((*searchedVector)[upperBound] == searchedItem)
+    return upperBound;
+  else if((*searchedVector)[lowerBound] == searchedItem)
+    return lowerBound;
 
-    if(upperBound - lowerBound <= 1)
-    {
-	    return -1;
-    }
-
+  if(upperBound - lowerBound <= 1)
+	  return -1;
+    
   int middle = (lowerBound + upperBound) / 2;
-
   
   if((*searchedVector)[middle] == searchedItem)
     return middle;
+
   if((*searchedVector)[middle] < searchedItem)
-    return binarySearch1(searchedVector, middle + 1, upperBound, searchedItem);
+    return worker(searchedVector, middle + 1, upperBound, searchedItem);
   if((*searchedVector)[middle] > searchedItem)
-    return binarySearch1(searchedVector, lowerBound, middle - 1, searchedItem);
+    return worker(searchedVector, lowerBound, middle - 1, searchedItem);
 
   return -1;
-}
+};
 
 template <class T>
-int binarySearch (std::shared_ptr<std::vector<T>> searchedVector, T searchedItem)
+int BinarySearch<T>::search (std::shared_ptr<std::vector<T>> searchedVector, T searchedItem)
 { 
 
   int lowerBound = 0;
   int upperBound = (*searchedVector).size() - 1;
-  return binarySearch1(searchedVector, lowerBound, upperBound, searchedItem);
+  return BinarySearch<T>::worker(searchedVector, lowerBound, upperBound, searchedItem);
 
 }
 
