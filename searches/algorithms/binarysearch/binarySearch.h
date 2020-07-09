@@ -17,17 +17,19 @@ template <class T>
 int binarySearch1 (std::shared_ptr<std::vector<T>> searchedVector, int lowerBound, int upperBound, T searchedItem)
 { 
 
- if(upperBound - lowerBound <= 1)
-  {
+
     if((*searchedVector)[upperBound] == searchedItem)
       return upperBound;
     else if((*searchedVector)[lowerBound] == searchedItem)
       return lowerBound;
-    else
-      return -1; 
-  }
+
+    if(upperBound - lowerBound <= 1)
+    {
+	    return -1;
+    }
 
   int middle = (lowerBound + upperBound) / 2;
+
   
   if((*searchedVector)[middle] == searchedItem)
     return middle;
@@ -35,6 +37,8 @@ int binarySearch1 (std::shared_ptr<std::vector<T>> searchedVector, int lowerBoun
     return binarySearch1(searchedVector, middle + 1, upperBound, searchedItem);
   if((*searchedVector)[middle] > searchedItem)
     return binarySearch1(searchedVector, lowerBound, middle - 1, searchedItem);
+
+  return -1;
 }
 
 template <class T>
