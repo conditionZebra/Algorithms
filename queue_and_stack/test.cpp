@@ -4,33 +4,32 @@
 
 int main() 
 { 
-    std::cout << "------ QUEUE ----------" << std::endl;
+  std::cout << "------ QUEUE ----------" << std::endl;
 
-    try { 
-        Queue<string> 	stringQueue;
-        Queue<int>	intQueue;
+  Queue<string> 	stringQueue;
+  Queue<int>	    intQueue;
 
-        intQueue.enqueue(1); 
-        intQueue.enqueue(2); 
-        intQueue.enqueue(3); 
-        intQueue.enqueue(4); 
+  intQueue.enqueue(1); 
+  intQueue.enqueue(2); 
+  intQueue.enqueue(3); 
+  intQueue.enqueue(4); 
 
-        stringQueue.enqueue("egy"); 
-        stringQueue.enqueue("ketto"); 
-        stringQueue.enqueue("harom"); 
-        stringQueue.enqueue("negy"); 
+  stringQueue.enqueue("one"); 
+  stringQueue.enqueue("two"); 
+  stringQueue.enqueue("three"); 
+  stringQueue.enqueue("four"); 
 
-	for(Queue<int>::iterator iter = intQueue.begin(); iter != intQueue.end(); iter++)
-        {
-                std::cout << *iter << std::endl;
-        }
+	for(Queue<int>::iterator iter = intQueue.begin(); iter != intQueue.end(); ++iter)
+  {
+    std::cout << *iter << std::endl;
+  }
 
 	std::cout << "-----------------------" << std::endl;
 
-	for(Queue<string>::iterator iter = stringQueue.begin(); iter != stringQueue.end(); iter++)
-        {
-                std::cout << *iter << std::endl;
-        }
+	for(Queue<string>::iterator iter = stringQueue.begin(); iter != stringQueue.end(); ++iter)
+  {
+    std::cout << *iter << std::endl;
+  }
 
 	std::cout << "-----------------------" << std::endl;
 
@@ -41,38 +40,45 @@ int main()
 	std::cout << "-----------------------" << std::endl;
 
 	// not safe -> exception
-	for(int i = 0; i <= 4; i++)
-		std::cout << stringQueue.dequeue() << std::endl;
-    } 
-    catch (exception const& ex) { 
-        cerr << "Exception: " << ex.what() <<endl; 
-    }
+  try { 
+    for(int i = 0; i <= 4; i++)
+      std::cout << stringQueue.dequeue() << std::endl;
+  } 
+  catch (char const* ex) { 
+    cerr << "Exception: " << ex <<endl; 
+  }
+  catch (int ex) { 
+    cerr << "Exception: " << ex <<endl; 
+  }
+  catch (...) { 
+    cerr << "Unknown exception" << endl; 
+  }
  
-    std::cout << "------ STACK ----------" << std::endl;
+  std::cout << "------ STACK ----------" << std::endl;
 
-    try {
-        Stack<string>   stringStack;
+  Stack<string> stringStack;
+    
+  stringStack.push("one");
+  stringStack.push("two");
+  stringStack.push("three");
+  stringStack.push("four");
+  stringStack.push("five");
 
-        stringStack.push("egy");
-        stringStack.push("ketto");
-        stringStack.push("harom");
-        stringStack.push("negy");
-        stringStack.push("ot");
+  for(Stack<string>::iterator iter = stringStack.begin(); iter != stringStack.end(); ++iter)
+  {
+    std::cout << *iter << std::endl;
+  }
 
+  std::cout << "-----------------------" << std::endl;
 
-        for(Stack<string>::iterator iter = stringStack.begin(); iter != stringStack.end(); iter++)
-        {
-                std::cout << *iter << std::endl;
-        }
-
-        std::cout << "-----------------------" << std::endl;
-
-        // safe
-        while(!stringStack.isEmpty())
-                std::cout << stringStack.pop() << std::endl;
-    } 
-    catch (exception const& ex) { 
-        cerr << "Exception: " << ex.what() <<endl; 
-        return -1;
-    }
+  // safe
+  try {
+    while(!stringStack.isEmpty())
+      std::cout << stringStack.pop() << std::endl;
+  } 
+  catch (exception const& ex) { 
+    cerr << "Exception: " << ex.what() <<endl; 
+    return -1;
+  }
+return 0;
 }

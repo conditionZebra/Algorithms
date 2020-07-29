@@ -10,7 +10,7 @@ class Element {
 		Element<T>* previous;
 		Element<T>* next;
 	public: 
-		Element(T t, Element<T> *p, Element<T> *n);
+		Element(T t, Element<T> *p = NULL, Element<T> *n = NULL);
 		T getData();
 //TODO: const!!!
 		Element<T>* getPrevious();
