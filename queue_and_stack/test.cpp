@@ -6,7 +6,7 @@ int main()
 { 
   std::cout << "------ QUEUE ----------" << std::endl;
 
-  Queue<string> 	stringQueue;
+  Queue<std::string> 	stringQueue;
   Queue<int>	    intQueue;
 
   intQueue.enqueue(1); 
@@ -26,7 +26,7 @@ int main()
 
 	std::cout << "-----------------------" << std::endl;
 
-	for(Queue<string>::iterator iter = stringQueue.begin(); iter != stringQueue.end(); ++iter)
+	for(Queue<std::string>::iterator iter = stringQueue.begin(); iter != stringQueue.end(); ++iter)
   {
     std::cout << *iter << std::endl;
   }
@@ -45,18 +45,15 @@ int main()
       std::cout << stringQueue.dequeue() << std::endl;
   } 
   catch (char const* ex) { 
-    cerr << "Exception: " << ex <<endl; 
-  }
-  catch (int ex) { 
-    cerr << "Exception: " << ex <<endl; 
+    std::cerr << "Exception: " << ex << std::endl; 
   }
   catch (...) { 
-    cerr << "Unknown exception" << endl; 
+    std::cerr << "Unknown exception" << std::endl; 
   }
  
   std::cout << "------ STACK ----------" << std::endl;
 
-  Stack<string> stringStack;
+  Stack<std::string> stringStack;
     
   stringStack.push("one");
   stringStack.push("two");
@@ -64,7 +61,7 @@ int main()
   stringStack.push("four");
   stringStack.push("five");
 
-  for(Stack<string>::iterator iter = stringStack.begin(); iter != stringStack.end(); ++iter)
+  for(Stack<std::string>::iterator iter = stringStack.begin(); iter != stringStack.end(); ++iter)
   {
     std::cout << *iter << std::endl;
   }
@@ -76,9 +73,11 @@ int main()
     while(!stringStack.isEmpty())
       std::cout << stringStack.pop() << std::endl;
   } 
-  catch (exception const& ex) { 
-    cerr << "Exception: " << ex.what() <<endl; 
-    return -1;
+  catch (char const& ex) { 
+    std::cerr << "Exception: " << ex << std::endl; 
+  }
+  catch (...) { 
+    std::cerr << "Unknown exception" << std::endl; 
   }
 return 0;
 }

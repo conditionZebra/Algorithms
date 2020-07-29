@@ -1,8 +1,6 @@
 #ifndef CSZELEMENT_H
 #define CSZELEMENT_H
 
-using namespace std;
-
 template <class T>
 class Element { 
 	private:
