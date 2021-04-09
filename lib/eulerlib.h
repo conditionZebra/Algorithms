@@ -19,8 +19,8 @@ namespace eulerlib
 	// first int is the diviasor the second
 	// is which power the divisor is.
 	// I hope it's clear... :)
-	typedef std::map<int,int> divisorMap;
-	divisorMap* getDivisors(int num); 
+	typedef std::map<long long int,int> divisorMap;
+	divisorMap* getDivisors(long long int num); 
 
 	typedef std::list<int> allDivisorList;
 	allDivisorList* getAllDivisors(int num); 

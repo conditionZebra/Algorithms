@@ -29,21 +29,23 @@ namespace eulerlib
 
   int getFactorial(int num)
   {
-    if(num == 1)
-      return num;
+    if(num == 1 || num == 0)
+      return 1;
     else
       return num * getFactorial(num - 1);
   }
 
 	bool isPrime(long num)
 	{
-		if(num == 1)
+		if(num <= 1)
 			return false;
+
 
 		for(long i = 2; i <= sqrt(num); i++)
 			if(num%i == 0)
 				return false;
 
+//    std::cout << num << std::endl;
 		return true;
 	}	
 
@@ -113,7 +115,7 @@ namespace eulerlib
 		return numb;
 	}
 
-	divisorMap* getDivisors(int num)
+	divisorMap* getDivisors(long long int num)
 	{
 		divisorMap* returnMap = new divisorMap;
 		if(isPrime(num))
@@ -124,7 +126,7 @@ namespace eulerlib
 
 		int counter;
 
-		for(int i = 2; i <= sqrt(num) + 1; i++)
+		for(long long int i = 2; i <= sqrt(num) + 1; i++)
 		{
 			if(num%i == 0)
 			{
@@ -167,7 +169,7 @@ namespace eulerlib
 
 		divisors = getDivisors(num);
 
-		for (std::map<int,int>::iterator it=(*divisors).begin(); it!=(*divisors).end(); ++it)
+		for (std::map<long long int,int>::iterator it=(*divisors).begin(); it!=(*divisors).end(); ++it)
                 {
                         numOfDivisors = numOfDivisors * (it->second + 1);
 
