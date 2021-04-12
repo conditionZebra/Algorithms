@@ -4,6 +4,7 @@ all: 24.cpp
 	g++ -std=c++0x 2.cpp -o 2 
 	g++ -std=c++0x -I../lib ../lib/eulerlib.o 3.cpp -o 3 
 	g++ -std=c++0x -I../lib ../lib/eulerlib.o 4.cpp -o 4 
+	g++ -std=c++0x -Wno-psabi -I../lib ../lib/eulerlib.o 5.cpp -o 5 
 	g++ -std=c++0x -I../lib ../lib/eulerlib.o 24.cpp -o 24 
 	g++ -std=c++0x 25.cpp -o 25 
 	g++ -std=c++0x 26.cpp -o 26 
