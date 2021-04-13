@@ -84,11 +84,11 @@ namespace eulerlib
 		return true;
 	}
 
-	int getDigitFromPosition(long num, int pos)
+	int getDigitFromPosition(long long int num, int pos)
 	{
-		int tenPower = 1;
+		long long int tenPower = 1;
 
-		for(int i = 0; i < pos - 1; i++)
+		for(int i = 0; i < pos; i++)
 			tenPower *= 10;
 
 		num /= tenPower;
@@ -96,7 +96,7 @@ namespace eulerlib
 		return num % 10;		
 	}
 
-        int numberOfDigits(long num)
+  int numberOfDigits(long num)
 	{
 		int result = 0;
 
@@ -108,9 +108,9 @@ namespace eulerlib
 		return result;
 	}
 
-	int stringToInt(std::string& string)
+	long long int stringToInt( const std::string& string)
 	{
-		int numb;
+		long long int numb;
 		std::istringstream(string) >> numb;
 		return numb;
 	}

@@ -13,8 +13,13 @@ namespace eulerlib
 	bool isPrime(long num);
 	bool isPalindrome(long num);
 	int numberOfDigits(long num);
-	int getDigitFromPosition(long num, int pos);
-	int stringToInt(std::string& string);
+  /*
+   *  getDigitFromPosition(456, 0) ==> 6
+   *  getDigitFromPosition(456, 1) ==> 5
+   *  getDigitFromPosition(456, 2) ==> 4
+   */
+  int getDigitFromPosition(long long int num, int pos);
+	long long int stringToInt(const std::string& string);
 
 	// first int is the diviasor the second
 	// is which power the divisor is.
