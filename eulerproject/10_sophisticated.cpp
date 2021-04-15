@@ -1,4 +1,3 @@
-#include "../lib/eulerlib.h"
 #include <iostream>
 #include <chrono>
 #include <list>
@@ -8,55 +7,57 @@ int main()
 {
   auto start = std::chrono::steady_clock::now();
 
-  long long int barrier = 2000000;
+  int barrier = 2000000;
 
   std::list<bool> primes(barrier,true);
-  std::list<bool>::iterator pi = primes.begin();
-  std::list<bool>::iterator negator;
-  long long int position = 0;
-  long long int currentPrime;
+  std::list<bool>::iterator primeIterator = primes.begin();
+  int currentNumber = 0;
   long long int result = 0;
 
-  *pi = false;
-  pi++;
-  currentPrime = 2;;
+  std::list<bool>::iterator negator;
+  int position = 0;   // to prevent overshoot primes with advancing negator
 
-  while(pi != primes.end())
+  *primeIterator = false;
+  primeIterator++;
+  currentNumber = 2;
+
+  while( currentNumber < sqrt(barrier))
   {
-    if(*pi == true)
+    if(*primeIterator == true)
     {
       negator = primes.begin();
-      std::advance(negator,(currentPrime * currentPrime) - 1);
-      position = (currentPrime * currentPrime) - 1;
+      std::advance(negator,(currentNumber * currentNumber) - 1);
+      position = (currentNumber * currentNumber) - 1;
 
-      while(negator != primes.end() && position < primes.size())
+      while(position < primes.size())
       {
-        if( position < primes.size())
-        {
-          *negator = false;
-          std::advance(negator,currentPrime);
-        }
-        position += currentPrime;
+        *negator = false;
+        std::advance(negator,currentNumber);
+        position += currentNumber;
       }
     }
-    currentPrime++;
-    pi++;
-    if(currentPrime >= sqrt(barrier))
-      break;
+    currentNumber++;
+    primeIterator++;
   }
 
-  pi = primes.begin();
+  primeIterator = primes.begin();
 
   int i = 1;
-  while(pi != primes.end())
+  while(primeIterator != primes.end())
   {
-    if(*pi)
+    if(*primeIterator)
       result += i;
-    pi++;
+    primeIterator++;
     i++;
   }
 
   std::cout << result << std::endl;
+  std::cout << "Elapsed time in seconds: "
+       << std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now() - start).count()
+       << " millisec" << std::endl;
+
+      negator = primes.begin();
+      std::advance(negator,(currentNumber * currentNumber) - 1);
 
   std::cout << "Elapsed time in seconds: "
        << std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now() - start).count()

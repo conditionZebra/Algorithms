@@ -10,7 +10,9 @@ all: 24.cpp
 	g++ -std=c++0x -I../lib ../lib/eulerlib.o 8.cpp -o 8
 	g++ -std=c++0x 9.cpp -o 9 
 	g++ -std=c++0x -I../lib ../lib/eulerlib.o 10_naive.cpp -o 10_naive
-	g++ -std=c++0x -I../lib ../lib/eulerlib.o 10_sophisticated.cpp -o 10_sophisticated
+	g++ -std=c++0x 10_sophisticated.cpp -o 10_sophisticated
+	g++ -std=c++0x 10_sophisticated_array.cpp -o 10_sophisticated_array
+	g++ -std=c++0x 10_sophisticated_std_array.cpp -o 10_sophisticated_std_array
 	
 	g++ -std=c++0x -I../lib ../lib/eulerlib.o 24.cpp -o 24 
 	g++ -std=c++0x 25.cpp -o 25 
